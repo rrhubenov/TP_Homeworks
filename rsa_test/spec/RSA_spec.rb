@@ -35,4 +35,23 @@ RSpec.describe RSA do
         111111111111111111111111111111111111111111111111111111111111111111111111111111
         11111111111111111111111111111111111111111111"
     end
+
+    context "Test getters" 
+    it "Test 'n'" do
+        keys = RSA.new_key
+        test = RSA.new(keys[0], keys[1], keys[2])
+        expect(test.n).to eq keys[0]
+    end
+
+    it "Test 'e'" do
+        keys = RSA.new_key
+        test = RSA.new(keys[0], keys[1], keys[2])
+        expect(test.e).to eq keys[1]
+    end
+
+    it "Test 'd'" do
+        keys = RSA.new_key
+        test = RSA.new(keys[0], keys[1], keys[2])
+        expect(test.d).to eq keys[2]
+    end
 end
