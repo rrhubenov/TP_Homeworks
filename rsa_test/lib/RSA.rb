@@ -20,16 +20,16 @@ class RSA
     end
     
     def self.new_key
-      a = rand(2...50)
+      a = rand(2...20)
       p1 = Prime.take(a).last
 
-      a = rand(2...50)
+      a = rand(2...20)
       p2 = Prime.take(a).last
 
       n = p1*p2
       phi_n = (p1 - 1)*(p2 - 1)
 
-      a = rand(2...50)
+      a = rand(2...20)
       e = Prime.take(a).last
 
       d = (2*phi_n + 1)/e
@@ -49,12 +49,12 @@ class RSA
     
     def decrypt message
       dec_message = message.split(/\W+/)
-      puts dec_message
+      final = String.new
       for i in 0..dec_message.count - 1
-        puts dec_message[i].to_i
-        dec_message[i] = (dec_message[i].to_i**@d % @n).chr
+        final << (dec_message[i].to_i**@d % @n).chr
       end
-      
+      puts final
+      final    
     end 
  end
 
